@@ -4,6 +4,8 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 - Flat cards
 - Elevated/Scrollable cards
 - Fancy cards
+- Deep Linking 
+- Touchable Opacity
 
 # Getting Started
 
