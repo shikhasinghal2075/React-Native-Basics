@@ -130,26 +130,67 @@ export default function App() {
                   fillColor='#29AB87'
                 />
               </View>
-              <View style={styles.inputWrapper}></View>
-              <View style={styles.inputWrapper}></View>
-              <View style={styles.inputWrapper}></View>
+              <View style={styles.inputWrapper}>
+              <Text style={styles.heading}>Include Symbols</Text>
+                <BouncyCheckbox 
+                  disableBuiltInState
+                  isChecked={symbols}
+                  onPress={() => setSymbols(!symbols)}
+                  fillColor='#29AB87'
+                />
+              </View>
+              <View style={styles.inputWrapper}>
+              <Text style={styles.heading}>Include Uppercase</Text>
+                <BouncyCheckbox 
+                  disableBuiltInState
+                  isChecked={upperCase}
+                  onPress={() => setUpperCase(!upperCase)}
+                  fillColor='#29AB87'
+                />
+              </View>
+              <View style={styles.inputWrapper}>
+              <Text style={styles.heading}>Include Numbers</Text>
+                <BouncyCheckbox 
+                  disableBuiltInState
+                  isChecked={numbers}
+                  onPress={() => setNumbers(!numbers)}
+                  fillColor='#29AB87'
+                />
+              </View>
 
               <View style={styles.formActions}>
-                <TouchableOpacity>
-                  <Text>Generate Password</Text>
+                <TouchableOpacity
+                  disabled={!isValid}
+                  style={styles.primaryBtn}
+                  onPress={() => handleSubmit()}
+                >
+                  <Text style={styles.primaryBtnTxt}>Generate Password</Text>
                 </TouchableOpacity>
     
-                <TouchableOpacity>
-                  <Text>Reset</Text>
+                <TouchableOpacity
+                  style={styles.secondaryBtn}
+                  onPress={() => {
+                    handleReset();
+                    resetPassword();
+                  }}
+                >
+                  <Text style={styles.secondaryBtnTxt}>Reset</Text>
                 </TouchableOpacity>
               </View>
               </>
             )}
-
-</Formik>
+          </Formik>
+          {
+            isPassGenerated ? (
+              <View style={[styles.card, styles.cardElevated]}>
+                <Text style={styles.subTitle}>Result: </Text>
+                <Text style={styles.description}>Long Press to copy </Text>
+                <Text selectable={true} style={styles.generatedPassword}>{password}</Text>
+              </View>
+            ) : null
+          }
         </View>
       </SafeAreaView>
-
     </ScrollView>
   )
 }
