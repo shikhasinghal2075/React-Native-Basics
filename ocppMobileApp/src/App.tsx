@@ -21,6 +21,7 @@ import ChooseConnector from './screens/ChooseConnector';
 import StartCharging from './screens/StartCharging';
 import SessionInfo from './screens/SessionInfo';
 import SessionFinished from './screens/SessionFinished';
+import TestMap from './screens/TestMap';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -29,6 +30,7 @@ export type RootStackParamList = {
   StartCharging: undefined;
   SessionInfo: undefined;
   SessionFinished: undefined;
+  TestMap: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
@@ -77,6 +79,13 @@ function App(): JSX.Element {
         component={SessionFinished}
         options={{
         title: "Session Finished"
+        }}
+        />
+        <Stack.Screen
+        name='TestMap'
+        component={TestMap}
+        options={{
+        title: "Play around maps"
         }}
         />
       </Stack.Navigator>
