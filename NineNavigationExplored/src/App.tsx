@@ -1,14 +1,4 @@
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
 
 //Navigation
 import {NavigationContainer} from "@react-navigation/native"
@@ -26,8 +16,6 @@ export type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
 function App(): JSX.Element {
-  
-
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Home'>
@@ -42,7 +30,7 @@ function App(): JSX.Element {
         name='Details'
         component={Details}
         options={{
-          title: "Product Details"
+        title: "Product Details"
         }}
         />
         
@@ -50,7 +38,5 @@ function App(): JSX.Element {
     </NavigationContainer>
   );
 }
-
-
 
 export default App;
